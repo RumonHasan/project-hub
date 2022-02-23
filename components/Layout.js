@@ -14,7 +14,14 @@ const Layout = ({children, title})=>{
         palette:{
             
         }
-    })
+    });
+
+    const containerStyles ={
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent:'center',
+        flexDirection:'column'
+    }
 
     return (
         <div className="layout">
@@ -25,10 +32,14 @@ const Layout = ({children, title})=>{
             </Head>
             <ThemeProvider theme={theme}>
             <CssBaseline/>
-                <div>
+                    <div>
+                        <Header/>
+                    </div>
+                <div style={containerStyles}>
                     <Container>
                         <Sidebar/>
                     </Container>
+    
                     <Container>
                         {children}
                     </Container>

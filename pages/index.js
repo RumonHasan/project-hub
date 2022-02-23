@@ -2,34 +2,21 @@ import React,{useEffect, useState} from 'react';
 // main layout component
 import Layout from '../components/Layout';
 import { Typography } from '@material-ui/core';
+import Banner from '../components/Banner';
+import ProjectGrid from '../components/ProjectGrid';
+import {projectImages} from '../utilities/services';
 
 const HomePage = ()=>{
-  const [titleIndex, setTitleIndex] = useState(0);
-  const titleArray = ['P', 'r', 'o', 'j', 'e', 'c', 't', '', 'H', 'U', 'B'];
-
-  const titleBlock = {
-    display: 'flex',
-    color: 'white',
-  };
-
-  useEffect(()=>{
-    const displayTitle = setTimeout(()=>{
-      setTitleIndex((currentTitleIndex)=> {
-        if(titleArray.length > currentTitleIndex){
-          currentTitleIndex += 1
-        }
-      });
-    }, 500);
-    return (()=>{
-      clearTimeout(displayTitle);
-    })
-  });
-
-  console.log(titleIndex);
+  const projectGridStyles ={
+    width: '80px',
+    height: '80vh',
+    border: '2px solid yellow',
+  }
 
   return (
     <Layout title='Home'>
-        <div style={titleBlock}>
+        <div style={projectGridStyles}>
+          <ProjectGrid/>
         </div>
     </Layout>
   )
